@@ -1,3 +1,5 @@
+#!python3
+
 import pyautogui as pag
 import time
 
@@ -15,9 +17,17 @@ def main():
     found = False
     print("Looking for accept-button-like object(s)...")
     while True:
-        coors = pag.locateCenterOnScreen(
-            "img/accept-en.png", grayscale=GRAYSCALE, confidence=CONFIDENCE
+        coors_en = pag.locateCenterOnScreen(
+            "../img/accept-en.png", grayscale=GRAYSCALE, confidence=CONFIDENCE
         )
+        coors_thai = pag.locateCenterOnScreen(
+            "../img/accept-th.png", grayscale=GRAYSCALE, confidence=CONFIDENCE
+        )
+        if cours_eng != None :
+           coors = cours_en
+        else:
+           coors = cours_th
+        
         if coors == None:
             if found :
                 pag.alert("Auto-accepted :D\nClick OK to continue.")
